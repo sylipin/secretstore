@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(./images/bg.jpg);
+            background-size: cover;
+            opacity: 0.9;
+            background-repeat: no-repeat;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .box {
+            width: 959px;
+            height: 680px;
+            /* background-color: orange; */
+            margin: 20px auto;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .box ul {
+            width: 960px;
+            height: 169px;
+        }
+
+        .box ul li {
+            list-style: none;
+            width: 190px;
+            height: 169px;
+            float: left;
+            background-color: black;
+            overflow: hidden;
+            background-size: cover;
+        }
+
+
+        .box ul:nth-of-type(1) li:nth-of-type(1) {
+            background-image: url(./images/1.jpg);
+        }
+
+        .box ul:nth-of-type(1) li:nth-of-type(2) {
+            background-image: url(./images/2.jpg);
+        }
+
+        .box ul:nth-of-type(1) li:nth-of-type(3) {
+            background-image: url(./images/overview.jpg);
+            display: flex;
+            color: black;
+            font-size: 38px;
+            align-items: center;
+            justify-content: center;
+            font-family: "叶根友毛笔行书2.0版";
+        }
+
+        .box ul:nth-of-type(1) li:nth-of-type(4) {
+            background-image: url(./images/3.jpg);
+        }
+
+        .box ul:nth-of-type(1) li:nth-of-type(5) {
+            background-image: url(./images/4.jpg);
+        }
+
+        .box ul:nth-of-type(2) li:nth-of-type(1) {
+            background-image: url(./images/5.jpg);
+        }
+
+        .box ul:nth-of-type(2) li:nth-of-type(2) {
+            background-image: url(./images/6.jpg);
+        }
+
+        .box ul:nth-of-type(2) li:nth-of-type(3) {
+            background-image: url(./images/7.jpg);
+        }
+
+        .box ul:nth-of-type(2) li:nth-of-type(4) {
+            background-image: url(./images/8.jpg);
+        }
+
+        .box ul:nth-of-type(2) li:nth-of-type(5) {
+            background-image: url(./images/9.jpg);
+        }
+
+        .box ul:nth-of-type(3) li:nth-of-type(1) {
+            background-image: url(./images/10.jpg);
+        }
+
+        .box ul:nth-of-type(3) li:nth-of-type(2) {
+            background-image: url(./images/11.jpg);
+        }
+
+        .box ul:nth-of-type(3) li:nth-of-type(3) {
+            background-image: url(./images/12.jpg);
+        }
+
+        .box ul:nth-of-type(3) li:nth-of-type(4) {
+            background-image: url(./images/13.jpg);
+        }
+
+        .box ul:nth-of-type(3) li:nth-of-type(5) {
+            background-image: url(./images/14.jpg);
+        }
+
+        .box ul:nth-of-type(4) li:nth-of-type(1) {
+            background-image: url(./images/15.jpg);
+        }
+
+        .box ul:nth-of-type(4) li:nth-of-type(2) {
+            background-image: url(./images/16.jpg);
+        }
+
+        .box ul:nth-of-type(4) li:nth-of-type(3) {
+            background-image: url(./images/17.jpg);
+        }
+
+        .box ul:nth-of-type(4) li:nth-of-type(4) {
+            background-image: url(./images/18.jpg);
+        }
+
+        .box ul:nth-of-type(4) li:nth-of-type(5) {
+            background-image: url(./images/19.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li>二十四节气</li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        $(function () {
+            $('.box ul li').click(function () {
+
+                var cont = $(this).index();
+
+                // $(this).css('backgroundColor', 'pink')
+                // $(this).siblings().css('backgroundColor', 'black')
+                // $(this).parent().siblings().children().css('backgroundColor', 'black')
+
+                $(this).animate({
+                    width: '389px',
+                    height: '480px'
+                }, 500)
+
+
+
+                $(this).siblings().animate({
+                    width: '140px',
+                    height: '480px'
+                }, 500)
+
+                $(this).parent().animate({
+                    height: '480px'
+                }, 500)
+
+                $(this).parent().siblings().children().animate({
+                    width: '190px',
+                    height: '68px'
+                }, 500)
+                $(this).parent().siblings().animate({
+                    height: '68px',
+                }, 500)
+
+                //同列元素的宽度相同
+                // $(this).parent().siblings().children().eq(cont).animate({
+                //     width:'389px'
+                // },500)
+            })
+        })
+    </script>
+</body>
+
+</html>

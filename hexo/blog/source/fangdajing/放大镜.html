@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .original {
+            position: relative;
+            float: left;
+        }
+
+        .original img {
+            width: 100%;
+        }
+
+        .mask {
+            background-color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .zoom {
+            width: 410px;
+            height: 410px;
+            float: left;
+            border: 1px solid white;
+            overflow: hidden;
+            display: none;
+        }
+
+        .zoom img {
+            width: 200%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        .btn {
+            position: fixed;
+            left: 0px;
+            top: 300px;
+            background-color: pink;
+            width: 300px;
+            height: 50px;
+            margin-left: 61px;
+        }
+
+        button {
+            float: left;
+            width: 75px;
+            height: 50px;
+        }
+
+        .slider {
+            width: 60px;
+            height: 60px;
+            background: red;
+            float: left;
+            margin-right: 2px;
+        }
+
+        .slider img {
+            width: 100%;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <div class="slider">
+            <img src="./img/1.jpg" alt="" />
+            <img src="./img/2.jpg" alt="" />
+            <img src="./img/3.jpg" alt="" />
+            <img src="./img/4.jpg" alt="" />
+            <img src="./img/5.jpg" alt="" />
+        </div>
+        <div class="original">
+            <img src="./img/1.jpg" />
+            <div class="mask"></div>
+        </div>
+        <div class="zoom">
+            <img src="./img/1.jpg" />
+        </div>
+        <div class="btn">
+            <button>放大2倍</button>
+            <button>放大3倍</button>
+            <button>放大4倍</button>
+            <button>放大5倍</button>
+        </div>
+    </div>
+    <script>
+        var stage = document.getElementsByClassName("stage")[0];
+        var original = stage.getElementsByClassName("original")[0];
+        var mask = original.getElementsByClassName("mask")[0];
+        var zoom = stage.getElementsByClassName("zoom")[0];
+        var zoomImg = zoom.getElementsByTagName("img")[0];
+        var btn = document.querySelectorAll('button');
+        var imgs = document.querySelectorAll('.slider img');
+        var originalImg = document.querySelector('.original img');
+        var originalW = 300;
+        var originalH = 300;
+        var level = "";
+        var zoomW = 410;
+        var zoomH = 410;
+        var maskW = originalW / level;
+        var maskH = originalH / level;
+        btn.forEach(function (obj, index) {
+            obj.onclick = function () {
+                level = parseInt(this.innerText.replace(/[^0-9]/ig, ""));
+                zoomImg.style.width = level + '00%'
+                mask.style.width = originalW / level + "px";
+                mask.style.height = originalH / level + "px";
+                maskW = originalW / level;
+                maskH = originalH / level;
+            }
+        });
+        original.style.height = originalH + 'px'
+        original.style.width = originalW + 'px'
+        original.onmousemove = function (event) {
+            var x = event.pageX - 60;
+            var y = event.pageY;
+            if (x <= maskW / 2) x = maskW / 2;
+            if (x >= originalW - maskW / 2) x = originalW - maskW / 2;
+            if (y <= maskH / 2) y = maskH / 2;
+            if (y >= originalH - maskH / 2) y = originalH - maskH / 2;
+            mask.style.top = y - maskW / 2 + "px";
+            mask.style.left = x - maskH / 2 + "px";
+            zoomImg.style.left = -(x - maskW / 2) * (zoomW / maskW) + "px";
+            zoomImg.style.top = -(y - maskH / 2) * (zoomH / maskH) + "px";
+        };
+
+        imgs.forEach(function (obj, index) {
+            obj.onclick = function () {
+                console.log(this.src)
+                originalImg.src = this.src;
+                zoomImg.src = this.src;
+            }
+        });
+
+        original.onmouseover = function () {
+            mask.style.display = 'block';
+            zoom.style.display = 'block';
+        }
+        original.onmouseout = function () {
+            mask.style.display = 'none';
+            zoom.style.display = 'none';
+        }
+        mask.onmousemove = function () {
+            this.style.cursor = 'move';
+        }
+    </script>
+</body>
+
+</html>
