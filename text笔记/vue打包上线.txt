@@ -1,0 +1,24 @@
+1、删除index.js下的路由的hisotry模式
+2、保证vue项目没有任何vue抛出的警告或者错误
+3、去除所有console.log()语句
+4、在根目录下创建vue.config.js, 写入 module.exports = {publicPath: './'}
+
+5.打包项目 npm run build
+
+6安装sublime text3
+	ctrl+shift+p   输入 install package control  回车
+
+7通过package control安装插件
+ctrl+shift+p  输入install  选择 package install packge
+等待加载插件仓库后，输入安装插件名称 APICloudLoader 
+
+8.将压缩的dist里的文件复制到另一新建文件夹，在sublime text3导入此文件夹
+   在文件夹根目录新建APICloud项目-空白项目
+9.将新建空白项目的文件全删除（除了xml文件），将dist里的文件放入空白项目
+  进入xml文件修改<widget id="A0000000000001"  version="0.0.1">的 ID
+10.进入APICloud官网创建应用 
+	native App > id
+11.将创建生成的ID添加到xml文件中
+12.配置好APICloud的 端设置 > 证书 > 代码（到sublime text3右击选择压缩widget包上传）> 模块(可跳过) > 
+  最后配置云编译 （选择安卓-使用升级环境编译）- 正式版 -高级设置
+13.点击云编译

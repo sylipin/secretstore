@@ -1,0 +1,78 @@
+
+
+node.js官网下载 （windows  Linux二进制x64）
+下载Xshell
+（ 工具站地址:https://xulu.ltd ）
+阿里云购买服务器
+
+
+一：配置服务器
+1.更换系统
+	1.公共镜像
+	2.CentOS  最新版都行
+	3.自定义密码  默认账号 root  密码自设
+2.安全组件配置
+	1.出/入方向 =》 快速添加 》全选 》保存
+	2.出/入方向 =》手动添加 》端口范围 3000 》 授权对象 0.0.0.0/0
+
+
+二：配置Xshell
+运行Xshell
+1.安装导包软件	apt install lrzsz
+2.导入node安装包（从桌面导入） rz '路径'
+3.到指定目录下新建文件夹:	
+	1.cd /usr/local/
+	2.mkdir node
+4.进入新建的node文件夹，并将安装包导入解压：
+	1.cd node/
+	2.mv /root/node安装包名字.tar.xz ./
+	3.tar -vxf node安装包名字.tar.xz		(tar格式：tar -vxf)（zip格式：unzip）
+5.进入node
+	1.cd node-v12....-x64/bin/
+	2.ll	(查看是否有npm npx)
+6.配置npm 
+	1.ln -s /usr/local/node/node-v12....-x64/bin/node /usr/local/bin/node
+	(报错删掉再装  ln -sf /usr/local/node/node-v12....-x64/bin/node /usr/local/bin/node)
+7.查看是否安装好
+	1.node -v
+	2.npm -v
+
+三：导入项目
+1.除了node_modules外将其余node.js打包，放到桌面
+2.在Xshell 进入根目录 
+	1.cd /
+	2.cd /usr/local/
+3.新建文件夹，并将node 项目导入到该文件夹 解压
+	1.mkder server
+	2.rz
+	3.unzip node项目名字
+4.安装依赖
+	1.npm install
+5.运行项目
+	1.node app.js
+
+
+四：离线挂载
+1.进入目标文件夹
+	cd /usr/local/server/
+安装pm2
+	npm i pm2 -g
+配置软连接
+	ln -s /usr/local/node/node-v12.18.4-linux-x64/bin/pm2<空格>/usr/local/bin/pm2	（已存在直接跳过）
+运行app.js
+	pm2 start app.js
+		（查看状态）：pm2 list
+断开
+	pm2 delete "ID"  === pm2 delete 0
+
+
+五：关于阿里云服务器CentOS7的防火墙问题
+1.在Xshell 进入根目录 
+2.开启防火墙：
+	1.systemctl start firewalld
+3.查看防火墙状态：
+	1.systemctl status firewalld
+4.开启端口：
+	1.firewall-cmd --zone=public --add-port=修改成你要的端口号/tcp --permanent  （推荐3000）
+5.重启防火墙：
+	1.firewall-cmd --reload

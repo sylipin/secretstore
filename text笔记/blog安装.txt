@@ -1,0 +1,24 @@
+$ npm install -g hexo-cli
+
+$ hexo init blog
+
+进入名字目录
+
+$ npm install
+
+$ hexo s -p 5555
+
+
+_config.yml.url: https://名字.github.io
+_config.yml.[type: git]
+_config.yml.[repo: git仓库地址]
+_config.yml.branch: master
+
+$ npm install hexo-deployer-git --save
+
+$ hexo g
+$ hexo d
+
+$git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly <--!主题
+
+
