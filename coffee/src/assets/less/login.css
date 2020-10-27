@@ -1,0 +1,92 @@
+.login {
+  height: 100vh;
+  background-image: url(../imgs/bigbg.jpg);
+  background-size: cover;
+}
+.login .login-box {
+  /*      .bg {
+            padding: 0;
+            height: 180px;
+            background-image: url(../imgs/bg.jpg);
+            background-size: cover;
+        } */
+}
+.login .login-box .van-nav-bar {
+  background-color: transparent;
+}
+.login .login-box .login-form {
+  margin-top: 100px;
+  padding: 5px 15px;
+}
+.login .login-box .login-form .title {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+.login .login-box .login-form .en-title {
+  font-size: 16px;
+  padding: 16px 0;
+  color: white;
+}
+.login .login-box .login-form /deep/ .van-cell {
+  background-color: transparent;
+}
+.login .left-text {
+  display: flex;
+}
+.login .left-text .logo {
+  width: 45px;
+  height: 45px;
+  background-image: url(../imgs/logo.png);
+  background-size: cover;
+}
+.login .left-text .logo-title {
+  font-weight: 700;
+  margin-left: 10px;
+  line-height: 46px;
+  font-size: 16px;
+  color: white;
+}
+.login .forgot {
+  margin-top: 20px;
+  color: #666;
+}
+.login .registered-btn {
+  margin-top: 40px;
+  border: 1px solid #ebedf0;
+  border-radius: 40px;
+  text-align: center;
+}
+.login .registered-btn .van-cell__value--alone {
+  outline: none;
+  color: white;
+  text-align: center;
+}
+.login .registered-btn .van-cell__right-icon {
+  display: none;
+}
+.login .login-btn {
+  background-color: transparent;
+  border: 1px solid #ebedf0;
+  color: white;
+}
+.login .registered-title {
+  font-size: 30px;
+  color: black;
+}
+.login .registered-form {
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+.login .password-registered input {
+  color: white;
+}
+.login .popup-item {
+  padding: 20px;
+}
+.login .register-text {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+/*# sourceMappingURL=./login.css.map */
