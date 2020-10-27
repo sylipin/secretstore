@@ -31,10 +31,11 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - 'xiaomi/**'
-  - 'shoufengqin/**'
   - 'motewang/**'
+  - 'shoufengqin/**'
   - 'fangdajing/**'
   - 'ylmusic/**'
+  - 'shopping/**'
 
 
 

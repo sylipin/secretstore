@@ -12,7 +12,6 @@ title: 作品展示
 <!-- ``` -->
 
  - >[小米静态网页](https://sylipin.github.io/../../../xiaomi/小米.html)
- - >[手风琴](https://sylipin.github.io/../../../shoufengqin/手风琴.html)
 
 <!-- <a href="http://localhost:4000/../../../xiaomi/index.html">xiaomi</a> -->
 <!-- <a href="">shoufengqin</a> -->
@@ -41,6 +40,7 @@ title: 作品展示
 <!-- More info: [Generating](https://hexo.io/docs/generating.html)、 -->
 
 ## jQuery类
+ - >[手风琴](https://sylipin.github.io/../../../shoufengqin/手风琴.html)
 
 <!-- ``` bash -->
 <!-- # $ hexo deploy -->
@@ -49,4 +49,5 @@ title: 作品展示
 <!-- More info: [Deployment](https://hexo.io/docs/one-command-deployment.html) -->
 ## VUE类
  - >[雅乐音乐播放器](https://sylipin.github.io/../../../ylmusic/index.html)
+ - >[购物商城](https://sylipin.github.io/../../../shopping/index.html)
 
