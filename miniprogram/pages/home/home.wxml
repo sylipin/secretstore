@@ -1,0 +1,56 @@
+<view class="home">
+	<van-toast id="van-toast" />
+	<view class="home-head">
+		<view class="home-head-content">
+			<view class="home-head-text">
+				<view class="content-title">本月结余</view>
+				<view class="money">
+					<view class="int">{{yuejie.int}}</view>
+					<view class="decimal">.{{yuejie.decimal}}
+					</view>
+				</view>
+			</view>
+			<view class="inOrSpending">
+				<view class="income">收入<view class="inOrSpending-money">{{incomeBymonth}}</view>
+				</view>
+				<view class="spending">支出<view class="inOrSpending-money">{{spendingBymonth}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="details">
+		<view class="l-text">
+			<view>日期:<text class="num">{{currentDate}}</text></view>
+			<view class="in">收入:<text class="num">{{incomeData}}</text></view>
+			<view class="out">支出:<text class="num">{{spendingData}}</text></view>
+		</view>
+		<view class="r-icons">
+			<picker mode="date" value="{{currentDate}}" start="2020-09-01" end="{{end}}" bindchange="bindchange">
+				<view class="picker">
+					<van-icon name="weapp-nav" size="60rpx"/>
+				</view>
+			</picker>
+		</view>
+	</view>
+
+	<view class="play-content">
+		<view class="play-item" wx:for="{{todayData}}" wx:key="index">
+			<view class="item-l">
+				<view class="img-content">
+					<image src="{{item.mothodType.url}}" class="item-l-img"></image>
+				</view>
+				<view class="play-l-text">
+					<view>
+						<text class="methods-type">{{item.mothodType.title}}</text>
+						<text class="pay-type">{{item.payType}}</text>
+					</view>
+					<view class="ps">{{item.note ?'备注:'+item.note :"备注:无"}}</view>
+				</view>
+			</view>
+			<view class="item-r {{item.payOrIn.type == 'zhichu' ? 'zhichu' : 'shouru'}}">{{item.payOrIn.type == 'zhichu' ? '-'+item.money : item.money}}</view>
+		</view>
+	</view>
+
+	<view class="daily-settlement" wx:if="{{todayData.length > 0}}"><text class="mrjy">每日结余:</text><text class="{{daily > 0 ? 'shouru' : 'zhichu'}}">{{daily}}</text></view>
+	<van-empty description="没有当天数据" wx:if="{{todayData.length == 0}}" />
+</view>

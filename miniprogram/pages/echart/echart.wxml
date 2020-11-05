@@ -1,0 +1,22 @@
+<view class="echart">
+	<van-toast id="van-toast" />
+	<view class="echart-bg">
+		<view class="search-by-time">
+			<view class="time">
+				<picker mode="date" class="picker" value="{{setDate}}" start="2020-10-29" end="{{end}}" bindchange="bindChange" data-name="date">
+					{{setDate}}
+				</picker>
+			</view>
+			<view class="time-btn">
+				<text class="time-btn-item {{index == YMDindex ? 'active' : ''}}" wx:for="{{YMDarry}}" bindtap="changeDateBtn" data-index="{{index}}" wx:key="index">{{YMDarry[index]}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="tab-title">
+		<van-tabs animated ellipsis swipeable>
+			<van-tab title="{{YMD+'收入:'+totalData.totalIncome}}">收入</van-tab>
+			<van-tab title="{{YMD+'支出:'+totalData.totalSpending}}">支出</van-tab>
+		</van-tabs>
+	</view>
+
+</view>

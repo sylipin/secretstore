@@ -1,0 +1,71 @@
+<view class="booking">
+	<van-toast id="van-toast" />
+	<view class="book-bg"></view>
+	<view class="book-content">
+		<!-- 支出/收入 -->
+		<view class="book-type">
+			<view class="switch-type">
+				<view class="switch-btn {{item.isActive ? 'active' :''}}" wx:for='{{typeData}}' wx:key="index" bindtap="toggle" data-acitve="{{item.isActive}}" data-index="{{index}}">{{item.text}}</view>
+			</view>
+		</view>
+		<!-- icon图标 -->
+		<view class="icons-type">
+			<!-- 支出 -->
+			<van-grid column-num="5" square clickable border='{{false}}' class="{{toggleIndex == 0? 'vShow':'vHidden'}}">
+				<van-grid-item use-slot wx:for="{{ typeIconData }}" wx:key="index" bindtap="toggleIcons" data-type="{{item.type}}" data-name="typeIconData" data-index="{{index}}" data-isAtive="{{item.isAtive}}">
+					<view class="icon-item-content {{item.isAtive?'checked':''}}">
+						<image style="width: 40rpx; height: 40rpx;" src="{{item.url}}" class="type-img" />
+					</view>
+					<view class="type-name">{{item.title}}</view>
+				</van-grid-item>
+			</van-grid>
+			<!-- 收入 -->
+			<van-grid column-num="5" square clickable border='{{false}}' class="{{toggleIndex == 1? 'vShow':'vHidden'}}">
+				<van-grid-item use-slot wx:for="{{ incomeData }}" wx:key="index" bindtap="toggleIcons" data-type="{{item.type}}" data-name="incomeData" data-index="{{index}}" data-isAtive="{{item.isAtive}}">
+					<view class="icon-item-content {{item.isAtive?'checked':''}}">
+						<image style="width: 40rpx; height: 40rpx;" src="{{item.url}}" class="type-img" />
+					</view>
+					<view class="type-name">{{item.title}}</view>
+				</van-grid-item>
+			</van-grid>
+		</view>
+		<!-- 支付方式 -->
+		<view class="pay-methods">
+			<view class="pay-title">记账方式:</view>
+			<view class="methods-content">
+				<view class="pay-item {{item.isAtive? 'active' : ''}}" wx:for="{{payData}}" wx:key="index" bindtap="toggleIcons" data-name="payData" data-index="{{index}}" data-isAtive="{{item.isAtive}}">{{item.title}}</view>
+			</view>
+		</view>
+
+		<view class="pay-info">
+			<!-- 日期 -->
+			<view class="pay-data">
+				<view class="pay-data-title">日期:</view>
+				<view class="pay-data-data">
+					<picker mode="date" class="picker" value="{{date}}" start="2020-10-29" end="{{end}}" bindchange="bindChange" data-name="date">
+							{{date}}
+					</picker>
+				</view>
+			</view>
+			<!-- 金额 -->
+			<view class="pay-data">
+				<view class="pay-data-title">金额:</view>
+				<view class="pay-data-data">
+					 <input class="amount" type="digit" value="{{amount}}" placeholder="输入金额" placeholder-style="color:#ddd" bindchange="bindChange" data-name="amount"/>
+				</view>
+			</view>
+			<!-- 备注 -->
+			<view class="pay-data">
+				<view class="pay-data-title">备注:</view>
+				<view class="pay-data-data">
+					 <input class="note" placeholder="添加备注说明" value="{{note}}" placeholder-style="color:#ddd" maxlength="15" bindchange="bindChange" data-name="note"/>
+				</view>
+			</view>
+
+		</view>
+
+		<!-- 保存 -->
+		 <view class="save-btn" bindtap="save">保存</view>
+
+	</view>
+</view>
