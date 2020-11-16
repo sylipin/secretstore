@@ -1,0 +1,24 @@
+```
+配置rem, px自动转换rem
+
+安装 postcss-pxtorem、lib-flexible插件
+  cnpm i postcss-pxtorem lib-flexible --save-dev
+
+在项目根目录创建postcss.config.js文件，写入一下内容
+  module.exports = {
+    plugins: {
+      autoprefixer: {
+        browsers: ['Android >= 4.0', 'iOS >= 8'],
+      },
+      'postcss-pxtorem': {
+        rootValue: 37.5,
+        propList: ['*']
+      },
+    }
+  }
+
+在main.js导入lib-flexible.js
+  import 'lib-flexible/flexible'
+
+##### 页面布局时，需要在iphone6标准屏幕进行布局，这样才可以适配所有屏幕
+```
