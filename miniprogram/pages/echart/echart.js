@@ -75,6 +75,7 @@ Page({
     this.getAllData(this.data.YMDindex)
   },
   //绘制canvas
+
   pie(typeData) {
     this.setData({
       series: {
@@ -89,6 +90,7 @@ Page({
     })
   },
 
+  //关闭弹出层
   onClose() {
     this.setData({
       show: false
