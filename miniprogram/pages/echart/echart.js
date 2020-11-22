@@ -59,6 +59,7 @@ Page({
     YMD: '',
     setDate: '',
     end: "",
+    //下标
     tableIndex: 0,
     shouru: [],
     zhichu: [],
