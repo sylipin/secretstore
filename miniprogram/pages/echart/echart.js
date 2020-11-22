@@ -65,7 +65,6 @@ Page({
     pieData: {},
     itemLists:{},
   },
-  //细节
 
   onShow() {
     this.setData({
