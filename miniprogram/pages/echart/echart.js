@@ -68,6 +68,7 @@ Page({
     itemLists:{},
   },
   //添加555
+  //添加细节
 
   onShow() {
     this.setData({
