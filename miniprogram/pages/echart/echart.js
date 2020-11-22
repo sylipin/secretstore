@@ -70,7 +70,7 @@ Page({
 
   //我添加了一些
   //我的
-  
+  //123删除的
   onShow() {
     this.setData({
         YMD: this.data.YMDarry[this.data.YMDindex],
