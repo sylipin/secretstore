@@ -59,6 +59,7 @@ Page({
     YMD: '',
     setDate: '',
     end: "",
+    //切换tab的下标
     tableIndex: 0,
     shouru: [],
     zhichu: [],
