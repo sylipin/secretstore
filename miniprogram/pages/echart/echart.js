@@ -62,6 +62,7 @@ Page({
     //下标
     tableIndex: 0,
     shouru: [],
+    //支出
     zhichu: [],
     pieData: {},
     itemLists:{},
