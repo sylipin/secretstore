@@ -67,6 +67,7 @@ Page({
     pieData: {},
     itemLists:{},
   },
+  //添加555
 
   onShow() {
     this.setData({
