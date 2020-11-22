@@ -68,6 +68,7 @@ Page({
     itemLists:{},
   },
   //我写的
+  //这里是123修改的
   //123
   onShow() {
     this.setData({
