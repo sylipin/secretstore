@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/echart/echart",
-    "pages/home/home",
     "pages/booking/booking",
-    "pages/my/my"
+    "pages/echart/echart",
+    "pages/my/my",
+    "pages/home/home"
   ],
   "window": {
     "backgroundColor": "#696969",
@@ -16,7 +16,7 @@
   "tabBar": {
     "backgroundColor": "#fff",
     "color": "#b5b5b5",
-    "selectedColor": "#1afa29",
+    "selectedColor": "#fc6d51",
     "list": [{
         "pagePath": "pages/home/home",
         "text": "首页 ",

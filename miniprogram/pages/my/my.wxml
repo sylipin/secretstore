@@ -1,3 +1,14 @@
-	<view class="container">
-		<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
-	</view>
+<view class="my">
+  <view class="my-bg">
+    <view class="content">
+      <view class="img-content">
+        <image class="touxiang" mode="widthFix" src="{{userInfo.url}}"></image>
+      </view>
+      <view class="nick">{{userInfo.nickName}}</view>
+      <view wx:if='{{!isAuth}}'>
+        <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo" size="mini"
+          hover-class="none">点击授权</button>
+      </view>
+    </view>
+  </view>
+</view>

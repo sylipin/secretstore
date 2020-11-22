@@ -3,20 +3,97 @@
 	<view class="echart-bg">
 		<view class="search-by-time">
 			<view class="time">
-				<picker mode="date" class="picker" value="{{setDate}}" start="2020-10-29" end="{{end}}" bindchange="bindChange" data-name="date">
+				<picker mode="date" class="picker" value="{{setDate}}" start="2020-10-29" end="{{end}}" bindchange="bindChange"
+					data-name="date">
 					{{setDate}}
 				</picker>
 			</view>
 			<view class="time-btn">
-				<text class="time-btn-item {{index == YMDindex ? 'active' : ''}}" wx:for="{{YMDarry}}" bindtap="changeDateBtn" data-index="{{index}}" wx:key="index">{{YMDarry[index]}}</text>
+				<text class="time-btn-item {{index == YMDindex ? 'active' : ''}}" wx:for="{{YMDarry}}" bindtap="changeDateBtn"
+					data-index="{{index}}" wx:key="index">{{YMDarry[index]}}</text>
 			</view>
 		</view>
 	</view>
+
+	<view class="canvas-content">
+		<van-empty description="暂无数据" wx:if="{{!pieData.shouru && !pieData.zhichu}}"/>
+		<view class="container">
+			<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+		</view>
+	</view>
 	<view class="tab-title">
-		<van-tabs animated ellipsis swipeable>
-			<van-tab title="{{YMD+'收入:'+totalData.totalIncome}}">收入</van-tab>
-			<van-tab title="{{YMD+'支出:'+totalData.totalSpending}}">支出</van-tab>
+		<van-tabs animated ellipsis swipeable bind:click="tabClick" border="true" color="#fc6d51">
+			<van-tab title="{{YMD+'收入:'+ (xxx.shouru.total?xxx.shouru.total:'0')}}">
+				<!-- bar数据 -->
+				<view class="play-content">
+					<view class="play-item" wx:for="{{xxx.shouru.details}}" wx:key="index" bindtap="getDetail"
+						data-detail="{{item}}">
+						<view class="item-l">
+							<view class="img-content">
+								<image src="{{item.imgs}}" class="item-l-img"></image>
+							</view>
+							<view class="play-l-text">
+								<view>
+									<text class="methods-type">{{item.title}}</text>
+									<text class="pay-type">{{item.count+'笔'}}</text>
+								</view>
+								<view class="ps">
+									<view class="ps-progress" style="width:{{item.proportion}} ;background-color:red"></view>
+								</view>
+							</view>
+						</view>
+						<view class="item-r shouru">{{item.total}}</view>
+					</view>
+				</view>
+			</van-tab>
+			<van-tab title="{{YMD+'支出:'+ (xxx.zhichu.total?xxx.zhichu.total:'0')}}">
+				<view class="play-content">
+					<view class="play-item" wx:for="{{xxx.zhichu.details}}" wx:key="index" bindtap="getDetail"
+						data-detail="{{item}}">
+						<view class="item-l">
+							<view class="img-content">
+								<image src="{{item.imgs}}" class="item-l-img"></image>
+							</view>
+							<view class="play-l-text">
+								<view>
+									<text class="methods-type">{{item.title}}</text>
+									<text class="pay-type">{{item.count+'笔'}}</text>
+								</view>
+								<view class="ps">
+									<view class="ps-progress" style="width:{{item.proportion}}; background-color:red"></view>
+								</view>
+							</view>
+						</view>
+						<view class="item-r zhichu">{{item.total}}</view>
+					</view>
+				</view>
+			</van-tab>
 		</van-tabs>
 	</view>
+	<van-popup class="popup-item-list" show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height: 40%"
+		round>
+		<view class="item-content">
+			<view class="item-title">{{itemLists.title}}</view>
+			<view class="play-content">
+				<view class="play-item" wx:for="{{itemLists.dec}}" wx:key="index">
+					<view class="item-l">
+						<view class="img-content">
+							<image src="{{item.mothodType.url}}" class="item-l-img"></image>
+						</view>
+						<view class="play-l-text">
+							<view>
+								<text class="methods-date">{{item.date.day}}</text>
+								<text class="pay-type">{{item.payType}}</text>
+							</view>
+							<view class="ps-list">{{item.note ?'备注:'+item.note :"备注:无"}}</view>
+						</view>
+					</view>
+					<view class="item-r {{item.payOrIn.type == 'zhichu' ? 'zhichu' : 'shouru'}}">
+						{{item.payOrIn.type == 'zhichu' ? '-'+item.money : item.money}}</view>
+				</view>
+			</view>
 
+		</view>
+
+	</van-popup>
 </view>

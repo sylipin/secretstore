@@ -50,8 +50,213 @@
   width: 0;
   height: 0;
   border: 12rpx solid transparent;
-  border-bottom-color:#fff;
+  border-bottom-color: #fff;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+van-tab {
+  width: 100%;
+  height: 100%;
+}
+
+.play-content {
+  padding: 40rpx 20rpx 10rpx 40rpx;
+}
+
+.canvas-content {
+  width: 100%;
+  height: 600rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.play-item {
+  display: flex;
+  margin-bottom: 10rpx;
+  padding: 10rpx 0;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.item-l {
+  display: flex;
+  width: 100%;
+}
+
+.img-content {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #ffaa43;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-l-text {
+  margin-left: 40rpx;
+  width: calc(100% - 150rpx);
+}
+
+.methods-type {
+  color: #333;
+  font-size: 34rpx;
+  width: 100rpx;
+  display: inline-block;
+}
+
+.ps {
+  color: #999;
+  width: 100%;
+  background-color: #ccc;
+  display: inline-block;
+  height: 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.ps-progress {
+  height: 100%;
+  background-color: #e4c;
+}
+
+.item-l-img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.item-r {
+  font-size: 30rpx;
+  width: 100rpx;
+  height: 100%;
+  text-align: right;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pay-type {
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  border-left: 2rpx solid #ccc;
+  padding-left: 20rpx;
+}
+
+.zhichu {
+  color: red;
+}
+
+.shouru {
+  color: rgb(36, 126, 0);
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+.canvas-content {
+  width: 100%;
+  height: 680rpx;
+  position: relative;
+  z-index: 99;
+}
+
+van-toast {
+  position: relative;
+  z-index: 99999;
+}
+
+.play-content {
+  padding: 40rpx 40rpx 10rpx;
+}
+
+.play-item {
+  display: flex;
+  margin-bottom: 10rpx;
+  padding: 10rpx 0;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #ccc;
+}
+
+.item-l {
+  display: flex;
+}
+
+.img-content {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #ffaa43;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-l-text {
+  margin-left: 40rpx;
+}
+
+.methods-date {
+  color: #333;
+  font-size: 24rpx;
+}
+
+.ps-list {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.pay-type {
+  color: #999;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+  border-left: 2rpx solid #ccc;
+  padding-left: 20rpx;
+}
+
+.item-l-img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.item-r {
+  font-size: 40rpx;
+}
+
+.zhichu {
+  color: red;
+  width: 200rpx;
+}
+
+.shouru {
+  color: rgb(36, 126, 0);
+  width: 200rpx;
+}
+
+.daily-settlement {
+  float: right;
+  margin-right: 40rpx;
+  padding-bottom: 10rpx;
+}
+
+.mrjy {
+  margin-right: 20rpx;
+}
+
+.item-title {
+  text-align: center;
+  font-weight: 700;
+  color: #ffaa43;
+  padding-top: 20rpx;
 }

@@ -1,13 +1,10 @@
-// miniprogram/pages/booking/booking.js
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
 import {
   format
 } from '../../js/formatDate'
+let app = getApp()
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     typeData: [{
         text: "支出",
@@ -155,7 +152,12 @@ Page({
 
   /* 保存 */
   save() {
-
+    let isAuth = app.globalData.isAuth
+    if(!isAuth) {
+      wx.switchTab({
+        url: '../my/my'
+      })
+    }
     // 需要存储的数据集合
     let allData = {}
 
@@ -228,14 +230,11 @@ Page({
     }
 
     allData.money = parseFloat(this.data.amount)
-    // allData.date = this.data.date
     let temp = {}
     temp.Year = this.data.date.substr(0,4)
     temp.Mounth = this.data.date.substr(0,7)
     temp.day = this.data.date
     allData.date = temp
-    // allData.Mounth = this.data.date.substr(0,7)
-    // allData.Year = this.data.date.substr(0,4)
     allData.note = this.data.note
 
     Toast.loading({
@@ -254,7 +253,6 @@ Page({
         amount: "",
         date: "选择如期"
       })
-      Toast.clear()
       Toast.success('保存成功');
     }).catch(err => {
       //清空输入栏
