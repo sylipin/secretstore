@@ -68,6 +68,7 @@ Page({
     itemLists:{},
   },
 
+  //123
   onShow() {
     this.setData({
         YMD: this.data.YMDarry[this.data.YMDindex],
